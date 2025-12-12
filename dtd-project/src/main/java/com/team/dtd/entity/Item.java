@@ -27,4 +27,10 @@ public class Item {
 
     @Column(name = "effect_value", nullable = false)
     private int effectValue;
+
+    @Column(name = "price_gold", nullable = false)
+    private int priceGold;
+
+    @Column(name = "price_diamond", nullable = false)
+    private int priceDiamond;
 }

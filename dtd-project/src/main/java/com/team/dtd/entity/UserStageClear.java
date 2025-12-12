@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "user_stage_clear")
 @Getter
+@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Builder
@@ -33,9 +34,6 @@ public class UserStageClear {
 
     @Builder.Default
     private int score = 0;
-
-    @Builder.Default
-    private int stars = 0;
 
     @CreationTimestamp
     @Column(name = "cleared_at", updatable = false)

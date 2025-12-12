@@ -34,6 +34,11 @@ public class UserInventory {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    // 아이템 개수 증가 메서드 [상점]
+    public void addQuantity(int amount) {
+        this.quantity += amount;
+    }
+
     // --- 복합키 클래스 정의 (내부 클래스로 작성) ---
     @Embeddable
     @Getter

@@ -27,13 +27,11 @@ public class UserTower {
     @JoinColumn(name = "tower_idx", nullable = false)
     private Tower tower;
 
+    // 레벨 : 데이터가 없으면 0, 있으면 1 이상
     @Builder.Default
-    private int level = 1;
+    private int level = 0;
 
-    @Builder.Default
-    private int exp = 0;
-
-    @CreationTimestamp
-    @Column(name = "obtained_at", updatable = false)
-    private LocalDateTime obtainedAt;
+    public void levelUp() {
+        this.level++;
+    }
 }

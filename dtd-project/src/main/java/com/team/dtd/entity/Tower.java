@@ -26,6 +26,9 @@ public class Tower {
     @Column(name = "base_range", nullable = false)
     private int baseRange;
 
+    @Column(name = "base_build_cost", nullable = false)
+    private int baseBuildCost;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "base_type", nullable = false)
     private TowerType baseType;
@@ -39,6 +42,13 @@ public class Tower {
 
     @Column(name = "base_upgrade_cost", nullable = false)
     private int baseUpgradeCost;
+
+    // 성장 계수
+    @Column(name = "damage_growth", nullable = false)
+    private double damageGrowth;
+
+    @Column(name = "cost_growth", nullable = false)
+    private double costGrowth;
 
     @Builder.Default
     private int tier = 1;

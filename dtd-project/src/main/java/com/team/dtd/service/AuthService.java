@@ -33,7 +33,7 @@ public class AuthService {
                 .pwd(passwordEncoder.encode(dto.getPwd()))
                 .username(dto.getUsername())
                 .birth(dto.getBirth())
-                .gold(0)
+                .gold(500)
                 .diamond(0)
                 .build();
 
