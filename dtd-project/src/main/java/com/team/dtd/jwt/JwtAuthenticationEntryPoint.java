@@ -13,7 +13,7 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException {
-        // 유효한 자격증명(토큰) 없이 접근하려 할 때 401 Unauthorized 에러 리턴
+        // 유효한 토큰 없이 접근하려 할 때 401 Unauthorized 에러 리턴
         response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
     }
 }

@@ -17,17 +17,14 @@ public class UserTower {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
 
-    // 외래키 관계 설정 (User)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_idx", nullable = false)
     private User user;
 
-    // 외래키 관계 설정 (Tower)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tower_idx", nullable = false)
     private Tower tower;
 
-    // 레벨 : 데이터가 없으면 0, 있으면 1 이상
     @Builder.Default
     private int level = 0;
 

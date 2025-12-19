@@ -41,7 +41,6 @@ public class TokenProvider {
         this.refreshTokenValidityInMilliseconds = this.refreshValidityInSeconds * 1000L;
     }
 
-    // Access Token 생성 (userid 기반)
     public String createAccessToken(String userid) {
         String role = "ROLE_USER";
         long now = (new Date()).getTime();
@@ -55,7 +54,6 @@ public class TokenProvider {
                 .compact();
     }
 
-    // Refresh Token 생성
     public String createRefreshToken(String userid) {
         long now = (new Date()).getTime();
         Date validity = new Date(now + this.refreshTokenValidityInMilliseconds);

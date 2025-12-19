@@ -10,6 +10,6 @@ public interface UserTowerRepository extends JpaRepository<UserTower, Long> {
     // 유저의 모든 강화 기록 조회
     List<UserTower> findAllByUser(User user);
 
-    // 특정 타워의 강화 기록 조회 (강화 할 때 사용)
+    // 특정 타워의 강화 기록 조회
     Optional<UserTower> findByUserAndTower_Idx(User user, Integer towerIdx);
 }

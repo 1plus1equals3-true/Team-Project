@@ -39,7 +39,6 @@ public class UserStageClear {
     @Column(name = "cleared_at", updatable = false)
     private LocalDateTime clearedAt;
 
-    // --- 복합키 클래스 정의 ---
     @Embeddable
     @Getter
     @NoArgsConstructor

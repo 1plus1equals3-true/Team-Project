@@ -17,8 +17,6 @@ public class StageController {
 
     private final StageService stageService;
 
-    // 스테이지 클리어 처리 API
-    // POST /api/stages/clear
     @PostMapping("/clear")
     public ResponseEntity<StageClearResponseDto> clearStage(@RequestBody StageClearRequestDto request) {
         return ResponseEntity.ok(stageService.clearStage(request));

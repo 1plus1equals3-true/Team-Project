@@ -15,14 +15,14 @@ import java.time.LocalDateTime;
 public class UserInventory {
 
     @EmbeddedId
-    private UserInventoryId id; // 복합키 클래스 사용
+    private UserInventoryId id;
 
-    @MapsId("userIdx") // UserInventoryId의 userIdx와 매핑
+    @MapsId("userIdx")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_idx")
     private User user;
 
-    @MapsId("itemIdx") // UserInventoryId의 itemIdx와 매핑
+    @MapsId("itemIdx")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_idx")
     private Item item;
@@ -34,12 +34,10 @@ public class UserInventory {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    // 아이템 개수 증가 메서드 [상점]
     public void addQuantity(int amount) {
         this.quantity += amount;
     }
 
-    // --- 복합키 클래스 정의 (내부 클래스로 작성) ---
     @Embeddable
     @Getter
     @NoArgsConstructor

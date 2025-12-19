@@ -20,14 +20,14 @@ public class UserController {
         return ResponseEntity.ok(userService.getMyInfo());
     }
 
-    // ❌ getMyTowers 삭제됨
+    // ❌ getMyTowers 삭제
 
     @GetMapping("/me/inventory")
     public ResponseEntity<List<UserInventoryResponseDto>> getMyInventory() {
         return ResponseEntity.ok(userService.getMyInventory());
     }
 
-    // ❌ selectStarterTower 삭제됨 (모든 타워 소유 기획)
+    // ❌ selectStarterTower 삭제
 
     @PostMapping("/me/shop/buy")
     public ResponseEntity<String> buyItem(@RequestBody BuyItemRequestDto request) {
@@ -45,5 +45,11 @@ public class UserController {
     public ResponseEntity<String> enhanceTower(@RequestBody EnhanceTowerRequestDto request) {
         userService.enhanceTower(request);
         return ResponseEntity.ok("강화 성공!");
+    }
+
+    @PostMapping("/me/shop/product")
+    public ResponseEntity<String> buyShopProduct(@RequestBody BuyProductRequestDto request) {
+        userService.buyShopProduct(request);
+        return ResponseEntity.ok("상품 구매가 완료되었습니다.");
     }
 }

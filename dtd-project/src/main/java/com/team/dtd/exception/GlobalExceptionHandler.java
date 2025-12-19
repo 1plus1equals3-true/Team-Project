@@ -18,7 +18,6 @@ public class GlobalExceptionHandler {
         BindingResult bindingResult = ex.getBindingResult();
         Map<String, String> errors = new HashMap<>();
 
-        // 에러가 난 필드명과 메시지를 Map에 담아 반환
         bindingResult.getFieldErrors().forEach(error ->
                 errors.put(error.getField(), error.getDefaultMessage())
         );
@@ -26,7 +25,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.badRequest().body(errors);
     }
 
-    // 그 외 일반적인 런타임 예외 처리 (예: "이미 존재하는 아이디입니다" 등)
+    // 그 외 일반적인 런타임 예외 처리 ("이미 존재하는 아이디입니다" 등)
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<String> handleRuntimeException(RuntimeException ex) {
         return ResponseEntity.badRequest().body(ex.getMessage());

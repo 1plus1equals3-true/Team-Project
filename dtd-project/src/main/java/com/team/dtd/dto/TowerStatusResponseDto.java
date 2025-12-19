@@ -22,7 +22,8 @@ public class TowerStatusResponseDto {
     private String baseAttackType;
     private double baseCooldown;
 
-
+    // 공격 이펙트 파일명
+    private String attackEffectFile;
 
     // 다음 강화 정보
     private int nextLevelCost;     // 다음 레벨업 비용

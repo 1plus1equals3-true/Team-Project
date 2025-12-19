@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 public class Tower {
 
     @Id
-    private Integer idx; // 101, 102 등 기획 데이터이므로 자동생성 아님
+    private Integer idx;
 
     @Column(name = "tower_name", nullable = false, length = 50)
     private String towerName;
@@ -43,7 +43,6 @@ public class Tower {
     @Column(name = "base_upgrade_cost", nullable = false)
     private int baseUpgradeCost;
 
-    // 성장 계수
     @Column(name = "damage_growth", nullable = false)
     private double damageGrowth;
 
@@ -55,4 +54,7 @@ public class Tower {
 
     @Column(columnDefinition = "TEXT")
     private String description;
+
+    @Column(name = "attack_effect_file", length = 100)
+    private String attackEffectFile;
 }

@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface TowerRepository extends JpaRepository<Tower, Integer> {
-    // 전체 조회 (정렬)
+    // 전체 조회
     List<Tower> findAllByOrderByTierAscIdxAsc();
 
-    // [추가] 등급별 조회
+    // 등급별 조회
     List<Tower> findAllByTierOrderByIdxAsc(int tier);
 }

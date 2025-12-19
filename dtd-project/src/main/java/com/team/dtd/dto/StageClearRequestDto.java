@@ -11,5 +11,5 @@ public class StageClearRequestDto {
     private int score;
 
     @JsonProperty("isWin")
-    private boolean isWin; // 승리 여부 (true: 클리어, false: 실패)
+    private boolean isWin;
 }

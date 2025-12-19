@@ -11,9 +11,9 @@ public class UserInventoryResponseDto {
     private Integer itemIdx;
     private String itemName;
     private String description;
-    private String effectType; // Enum.name()
+    private String effectType;
     private int effectValue;
-    private int quantity;      // 보유 수량
+    private int quantity;
 
     public UserInventoryResponseDto(UserInventory userInventory) {
         Item item = userInventory.getItem();

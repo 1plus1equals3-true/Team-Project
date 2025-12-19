@@ -15,18 +15,15 @@ public class UserTowerResponseDto {
     private int exp;
     private LocalDateTime obtainedAt;
 
-    // ⭐️ Entity인 Tower 대신, 아래 만든 TowerInfo 객체를 사용합니다.
     private TowerInfo tower;
 
     public UserTowerResponseDto(UserTower userTower) {
         this.id = userTower.getIdx();
         this.level = userTower.getLevel();
 
-        // ⭐️ 여기서 데이터를 꺼내서 새 객체에 담습니다. (프록시 해제 효과)
         this.tower = new TowerInfo(userTower.getTower());
     }
 
-    // 내부 클래스로 타워 정보 정의 (필요한 정보만 골라서 넣으세요)
     @Getter
     @NoArgsConstructor
     public static class TowerInfo {
@@ -34,8 +31,8 @@ public class UserTowerResponseDto {
         private String towerName;
         private int baseDamage;
         private int baseRange;
-        private String baseType;   // Enum은 String으로 변환
-        private String attackType; // Enum은 String으로 변환
+        private String baseType;
+        private String attackType;
         private int tier;
         private String description;
 

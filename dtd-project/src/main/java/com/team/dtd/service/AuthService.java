@@ -66,7 +66,7 @@ public class AuthService {
         return userRepository.findByRefreshToken(refreshToken);
     }
 
-    // 로그아웃 시 토큰 삭제 (null 처리)
+    // 로그아웃 시 토큰 삭제
     @Transactional
     public void deleteRefreshToken(String refreshToken) {
         userRepository.findByRefreshToken(refreshToken)

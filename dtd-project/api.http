@@ -83,6 +83,17 @@ Content-Type: application/json
 
 {
   "stageIdx": 1,
-  "score": 500,
-  "isWin": false
+  "score": 10000,
+  "isWin": true
+}
+
+### 16. 상점 패키지 목록 조회
+GET http://localhost:8070/api/shop/products
+
+### 17. 유료 패키지 구매
+POST http://localhost:8070/api/users/me/shop/product
+Content-Type: application/json
+
+{
+  "productIdx": 3
 }

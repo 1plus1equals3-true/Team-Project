@@ -29,16 +29,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
-        // 1. Request Header에서 토큰 추출
         String jwt = resolveToken(request);
         //log.info("토큰 값 테스트 ㅇㅇㅇㅇ{}", jwt);
 
-        // 2. 추출된 토큰 유효성 검사
         if (StringUtils.hasText(jwt) && tokenProvider.validateToken(jwt)) {
-            // 토큰이 유효할 경우, 토큰에서 Authentication 객체를 받아옴
             Authentication authentication = tokenProvider.getAuthentication(jwt);
 
-            // SecurityContext에 Authentication 객체를 저장 (로그인 처리)
             SecurityContextHolder.getContext().setAuthentication(authentication);
             log.debug("Security Context에 '{}' 인증 정보를 저장했습니다.", authentication.getName());
         } else {
@@ -49,17 +45,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     }
 
     private String resolveToken(HttpServletRequest request) {
-        // 1. 헤더에서 Bearer 토큰 추출 (기존 로직)
         String bearerToken = request.getHeader(AUTHORIZATION_HEADER);
         if (StringUtils.hasText(bearerToken) && bearerToken.startsWith(BEARER_PREFIX)) {
             return bearerToken.substring(BEARER_PREFIX.length());
         }
 
-        // ⭐️ 2. 쿠키에서 Access Token 추출 로직 추가
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
             for (Cookie cookie : cookies) {
-                if ("accessToken".equals(cookie.getName())) { // 쿠키 이름이 "accessToken"인 경우
+                if ("accessToken".equals(cookie.getName())) {
                     return cookie.getValue();
                 }
             }
